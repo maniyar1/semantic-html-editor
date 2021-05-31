@@ -13,6 +13,7 @@
 				padding: 1px 6px;
 				border-width: 2px;
 				border-style: outset;
+				/*appearance: none;*/
 			}
 		</style>
 		<style>
@@ -32,6 +33,8 @@
 				flex-direction: row;*/
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(0em, 1fr));
+				grid-template-rows: repeat(2, min-content);
+				grid-auto-flow: column;
 				background-color: rgba(255, 0, 0, .3);
 			}
 			#second-row {
@@ -43,7 +46,7 @@
 			}
 			.top-row-button {
 				display: contents;
-				display: grid;
+				/*display: grid;
 				grid-template-areas: 'icon' 'label';
 				grid-template-columns: 100%;
 				/*
@@ -59,9 +62,15 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-origin: padding-box;
-				grid-area: icon;
+				background-position-y: center;
+				/*grid-area: icon;*/
 				height: fit-content;
+				height: 100%;
 				padding: 0;
+			}
+			.top-row-button > select {
+				background-size: calc(100% - 8px);
+				background-position-x: -2px;
 			}
 			.top-row-button > :is(select, button):after {
 				content: '';
@@ -69,7 +78,8 @@
 				padding-bottom: 100%;
 			}
 			.top-row-button > label {
-				grid-area: label;
+				/*grid-area: label;*/
+				text-align: center;
 			}
 
 			#editing-area {
@@ -82,7 +92,11 @@
 
 			@media only screen and (max-width: 1200px) {
 				label {
+					/*/
 					display: none;
+					/*/
+					visibility: hidden;
+					/**/
 				}
 			}
 		</style>
@@ -140,7 +154,7 @@
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>Deleted Text (&lt;del&gt;)</option>
 					</select>
-					<label for="strikethrough-menu">strikethrough</label>
+					<label for="strikethrough-menu">strike</label>
 				</div>
 
 				<div class="top-row-button"> 
@@ -172,7 +186,7 @@
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>preformatted text (&lt;pre&gt;)</option>
 					</select>
-					<label for="italics-menu">preformatted</label>
+					<label for="italics-menu">pre</label>
 				</div>
 
 				<div class="top-row-button"> 
