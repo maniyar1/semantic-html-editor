@@ -5,15 +5,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<meta name="description" content="">
-		<style data-description"ok yeah so i'm tryna like, match up select with button as much as i can i guess lol">
+		<style>
+			/* replace this with whatever input element styling you like, and make it more consistent across browsers and elements */
 			select {
-				text-align: center;
-				align-items: flex-start;
-				background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
-				padding: 1px 6px;
 				border-width: 2px;
 				border-style: outset;
-				/*appearance: none;*/
 			}
 		</style>
 		<style>
@@ -26,17 +22,17 @@
 				font-family: monospace;
 				font-weight: bold;
 			}
-			#top-row {
-				max-height: 14em;
+
+			#top-row, #second-row {
+				/*max-height: 14em;*/ /* dummy thicc? */
 				width: 100%;
-				/*display: flex;
-				flex-direction: row;*/
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(0em, 1fr));
 				grid-template-rows: repeat(2, min-content);
 				grid-auto-flow: column;
 				background-color: rgba(255, 0, 0, .3);
 			}
+
 			#second-row {
 				height: 10em;
 				min-width: 100%;
@@ -44,18 +40,9 @@
 				flex-direction: row;
 				background-color: rgba(0, 0, 255, .3);
 			}
+
 			.top-row-button {
 				display: contents;
-				/*display: grid;
-				grid-template-areas: 'icon' 'label';
-				grid-template-columns: 100%;
-				/*
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				width: 100%;
-				height: 100%;
-				*/
 			}
 
 			.top-row-button > :is(select, button) {
@@ -63,22 +50,19 @@
 				background-size: cover;
 				background-origin: padding-box;
 				background-position-y: center;
-				/*grid-area: icon;*/
-				height: fit-content;
 				height: 100%;
 				padding: 0;
-			}
-			.top-row-button > select {
-				background-size: calc(100% - 8px);
-				background-position-x: -2px;
 			}
 			.top-row-button > :is(select, button):after {
 				content: '';
 				display: block;
 				padding-bottom: 100%;
 			}
+			.top-row-button > select {
+				background-size: calc(100% - 8px);
+				background-position-x: -2px;
+			}
 			.top-row-button > label {
-				/*grid-area: label;*/
 				text-align: center;
 			}
 
@@ -91,16 +75,22 @@
 			}
 
 			@media only screen and (max-width: 1200px) {
-				label {
-					/*/
-					display: none;
-					/*/
-					visibility: hidden;
-					/**/
+				/* toggle whether or not to keep the strip for the labels visible */
+				/**/
+				#top-row {
+					grid-template-rows: min-content;
 				}
+				label {
+					display: none;
+				}
+				/*/
+				label {
+					visibility: hidden;
+				}
+				/**/
 			}
 		</style>
-		<script src="resize-buttons.js"></script>
+		<script src="apply-icons.js" defer></script>
 	</head>
 
 
@@ -110,47 +100,48 @@
 			<div id="top-row">
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/folder-line.svg);" id="save-button"> </button>
+					<button data-icon="icons/folder-line.svg" id="save-button"> </button>
 					<label for="save-button">save</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/folder-open-line.svg);" id="open-button"> </button>
+					<button data-icon="icons/folder-open-line.svg" id="open-button"> </button>
 					<label for="open-button">open</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/printer-line.svg);" id="print-button"> </button>
+					<button data-icon="icons/printer-line.svg" id="print-button"> </button>
 					<label for="print-button">print</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/cog-line.svg);" id="settings-button"> </button>
+					<button data-icon="icons/cog-line.svg" id="settings-button"> </button>
 					<label for="settings-button">settings</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/block-quote-line.svg);" id="block-quote-button"> </button>
+					<button data-icon="icons/block-quote-line.svg" id="block-quote-button"> </button>
 					<label for="block-quote-button">block</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/inline-quote.svg);" id="inline-quote-button"> </button>
+					<button data-icon="icons/inline-quote.svg" id="inline-quote-button"> </button>
 					<label for="inline-quote-button">inline</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/bullet-list-line.svg);" id="list-button"> </button>
+					<button data-icon="icons/bullet-list-line.svg" id="list-button"> </button>
 					<label for="list-button">list</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/number-list-line.svg);" id="ordered-list-button"> </button>
+					<button data-icon="icons/number-list-line.svg" id="ordered-list-button"> </button>
 					<label for="ordered-list-button">ordered list</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/strikethrough-line.svg);" id="strikethrough-menu">
+					<select data-icon="icons/strikethrough-line.svg" id="strikethrough-menu">
+						<!-- *stares at multiple elements with same id* -->
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>Deleted Text (&lt;del&gt;)</option>
 					</select>
@@ -158,7 +149,7 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/bold-line.svg);" id="bold-menu">
+					<select data-icon="icons/bold-line.svg" id="bold-menu">
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>Strong (&lt;strong&gt;)</option>
 					</select>
@@ -166,7 +157,7 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/italic-line.svg);" id="italics-menu">
+					<select data-icon="icons/italic-line.svg" id="italics-menu">
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>Emphasis (&lt;em&gt;)</option>
 					</select>
@@ -174,7 +165,7 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/underline-line.svg);" id="underline-menu">
+					<select data-icon="icons/underline-line.svg" id="underline-menu">
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>Unarticulated Annotation (&lt;u&gt;)</option>
 					</select>
@@ -182,7 +173,7 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/code-line.svg);" id="pre-menu">
+					<select data-icon="icons/code-line.svg" id="pre-menu">
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>preformatted text (&lt;pre&gt;)</option>
 					</select>
@@ -190,7 +181,7 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<select style="background-image: url(icons/image-line.svg);" id="media-menu">
+					<select data-icon="icons/image-line.svg" id="media-menu">
 						<option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
 						<option>image (&lt;img&gt;)</option>
 					</select>
@@ -198,12 +189,12 @@
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/block-quote-line.svg);" id="form-button"> </button>
+					<button data-icon="icons/block-quote-line.svg" id="form-button"> </button>
 					<label for="form-button">form mode</label>
 				</div>
 
 				<div class="top-row-button"> 
-					<button style="background-image: url(icons/block-quote-line.svg);" id="table-button"> </button>
+					<button data-icon="icons/block-quote-line.svg" id="table-button"> </button>
 					<label for="table-button">table mode</label>
 				</div>
 
