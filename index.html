@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title> Semantic HTML Editor by Mani Kamali </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <style>
+    div .top-row-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        label {
+            visibility: hidden;
+        }
+    }
+    </style>
+    <script src="resize-buttons.js"></script>
+</head>
+
+
+
+<body style="height: 100vh;">
+    <div style="display: flex; flex: 1 1 auto; flex-direction: column; align-items: flex-start; height: 100%; font-family: monospace; font-weight: bold;">
+        <div id="top-row" style="height: 14em; width: 100%; display: flex; flex-direction: row; background-color: rgba(255, 0, 0, .3);">
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/folder-line.svg) no-repeat; background-size: cover; background-origin: padding-box;" class="top-row-button" id="save-button">
+                </button>
+                <label for="save-button">save</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/folder-open-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="open-button">
+                </button>
+                <label for="open-button">open</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/printer-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="print-button">
+                </button>
+                <label for="print-button">print</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/cog-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="settings-button">
+                </button>
+                <label for="settings-button">settings</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/block-quote-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="block-quote-button">
+                </button>
+                <label for="block-quote-button">block</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/inline-quote.svg) no-repeat; background-size: cover;" class="top-row-button" id="inline-quote-button">
+                </button>
+                <label for="inline-quote-button">inline</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/bullet-list-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="list-button">
+                </button>
+                <label for="list-button">list</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/number-list-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="ordered-list-button">
+                </button>
+                <label for="ordered-list-button">ordered list</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/strikethrough-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="strikethrough-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>Deleted Text (&lt;del&gt;)</option>
+                </select>
+                <label for="strikethrough-menu">strikethrough</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/bold-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="bold-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>Strong (&lt;strong&gt;)</option>
+                </select>
+                <label for="bold-menu">bold</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/italic-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="italics-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>Emphasis (&lt;em&gt;)</option>
+                </select>
+                <label for="italics-menu">italics</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/underline-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="underline-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>Unarticulated Annotation (&lt;u&gt;)</option>
+                </select>
+                <label for="underline-menu">underline</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/code-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="pre-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>preformatted text (&lt;pre&gt;)</option>
+                </select>
+                <label for="italics-menu">preformatted</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <select style="background: url(icons/image-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="media-menu">
+                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option>image (&lt;img&gt;)</option>
+                </select>
+                <label for="media-menu">media</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/block-quote-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="form-button">
+                </button>
+                <label for="form-button">form mode</label>
+            </div>
+
+            <div class="top-row-button"> 
+                <button style="background: url(icons/block-quote-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="table-button">
+                </button>
+                <label for="table-button">table mode</label>
+            </div>
+
+        </div>
+        <div style="height: 10em; min-width: 100%; display: flex; flex-direction: row; background-color: rgba(0, 0, 255, .3);">
+            <div> 1 </div>
+            <div> 2 </div>
+            <div> 3 </div>
+        </div>
+        <div style="width: 33em; max-width: 33em; height: 100%; align-self: center; background-color: rgba(0, 255, 0, .5)" contenteditable="true">        
+        </div>
+    </div>
+</body>
+</html>
