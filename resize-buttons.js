@@ -1,5 +1,5 @@
-window.addEventListener('load', makeButtonsSquare)
-window.addEventListener('resize', makeButtonsSquare);
+//window.addEventListener('load', makeButtonsSquare)
+//window.addEventListener('resize', makeButtonsSquare);
 
 function makeButtonsSquare() {
     let elements = Array.from(document.getElementsByClassName("top-row-button")); 
