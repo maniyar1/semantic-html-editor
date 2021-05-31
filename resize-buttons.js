@@ -3,11 +3,9 @@ window.addEventListener('resize', makeButtonsSquare);
 
 function makeButtonsSquare() {
     let elements = Array.from(document.getElementsByClassName("top-row-button")); 
-    let divs = elements.filter(element => element.nodeName === "BUTTON" || element.nodeName === "SELECT");
-    divs.forEach(div => {
-        div.style.height = div.offsetWidth + "px";
-        console.log(div);
+    let interactives = elements.filter(element => element.nodeName === "BUTTON" || element.nodeName === "SELECT");
+    interactives.forEach(elem => {
+        elem.style.height = elem.offsetWidth + "px";
+        console.log(elem);
     });
-    let topRow = document.getElementById("top-row"); 
-    console.log(topRow);
 }

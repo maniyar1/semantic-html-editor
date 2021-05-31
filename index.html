@@ -13,9 +13,21 @@
         height: 100%;
     }
 
+    #top-row {
+        height: 14em; 
+        width: 100%; 
+        display: flex; 
+        flex-direction: row; 
+        background-color: rgba(255, 0, 0, .3);
+    }
+    
+    .default-selection {
+        display: none;
+    }
+
     @media only screen and (max-width: 1200px) {
         label {
-            visibility: hidden;
+            display: none;
         }
     }
     </style>
@@ -26,7 +38,7 @@
 
 <body style="height: 100vh;">
     <div style="display: flex; flex: 1 1 auto; flex-direction: column; align-items: flex-start; height: 100%; font-family: monospace; font-weight: bold;">
-        <div id="top-row" style="height: 14em; width: 100%; display: flex; flex-direction: row; background-color: rgba(255, 0, 0, .3);">
+        <div id="top-row" style="">
 
             <div class="top-row-button"> 
                 <button style="background: url(icons/folder-line.svg) no-repeat; background-size: cover; background-origin: padding-box;" class="top-row-button" id="save-button">
@@ -78,15 +90,15 @@
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/strikethrough-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="strikethrough-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>Deleted Text (&lt;del&gt;)</option>
                 </select>
-                <label for="strikethrough-menu">strikethrough</label>
+                <label for="strikethrough-menu">strike</label>
             </div>
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/bold-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="bold-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>Strong (&lt;strong&gt;)</option>
                 </select>
                 <label for="bold-menu">bold</label>
@@ -94,7 +106,7 @@
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/italic-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="italics-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>Emphasis (&lt;em&gt;)</option>
                 </select>
                 <label for="italics-menu">italics</label>
@@ -102,7 +114,7 @@
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/underline-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="underline-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>Unarticulated Annotation (&lt;u&gt;)</option>
                 </select>
                 <label for="underline-menu">underline</label>
@@ -110,15 +122,15 @@
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/code-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="pre-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>preformatted text (&lt;pre&gt;)</option>
                 </select>
-                <label for="italics-menu">preformatted</label>
+                <label for="italics-menu">pre</label>
             </div>
 
             <div class="top-row-button"> 
                 <select style="background: url(icons/image-line.svg) no-repeat; background-size: cover;" class="top-row-button" id="media-menu">
-                    <option class="hidden" id="empty" value="empty" alt="Please select an option"></option>
+                    <option class="default-selection" id="empty" value="empty" alt="Please select an option"></option>
                     <option>image (&lt;img&gt;)</option>
                 </select>
                 <label for="media-menu">media</label>
